@@ -1,8 +1,13 @@
 namespace Revisao
 {
-    public struct Aluno
+    public class Aluno
     {
-        public string Nome { get; set; }
-        public decimal Nota { get; set; }
+        public readonly string Nome;
+        public readonly decimal Nota;
+        public Aluno(string Nome, decimal Nota)
+        {
+            this.Nome = Nome;
+            this.Nota = Nota;
+        }
     }
 }

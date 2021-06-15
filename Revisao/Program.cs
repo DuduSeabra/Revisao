@@ -12,6 +12,9 @@ namespace Revisao
 
             while(opcao != "0") 
             {
+                string Nome;
+                decimal Nota;
+
                 Console.WriteLine("Escolha uma opção:");
                 Console.WriteLine("1- Cadastrar novo aluno");
                 Console.WriteLine("2- Calcular média geral");
@@ -24,15 +27,15 @@ namespace Revisao
                 switch(opcao)
                 {
                     case "1":
-                        Aluno aluno = new Aluno();
 
                         Console.WriteLine("Informe o nome do aluno:");
-                        aluno.Nome = Console.ReadLine();
+                        Nome = Console.ReadLine();
 
                         Console.WriteLine("Informe a nota:");
                         if(decimal.TryParse(Console.ReadLine(), out decimal aux))
                         {
-                            aluno.Nota = aux;
+                            Nota = aux;
+                            Aluno aluno = new Aluno(Nome, Nota);
                             alunos[count] = aluno;
                             count++;
                         }
@@ -47,7 +50,7 @@ namespace Revisao
 
                         for(int i = 0; i < alunos.Length; i++)
                         {
-                            if(alunos[i].Nome != null)
+                            if(alunos[i] != null)
                             {
                             media = alunos[i].Nota + media;
                             n_alunos++;
@@ -74,12 +77,12 @@ namespace Revisao
                     case "3":
                         foreach(Aluno i in alunos)
                         {
-                            if(i.Nome != null)
+                            if(i != null)
                                 Console.WriteLine($"Nome: {i.Nome} | Nota: {i.Nota}");
                         }
                         break;
                     case "0":
-                        return;
+                        continue;
                     default:
                         throw new ArgumentOutOfRangeException("Opção inválida, digite novamente.");
                 }
