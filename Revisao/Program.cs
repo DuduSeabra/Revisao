@@ -35,7 +35,9 @@ namespace Revisao
                         if(decimal.TryParse(Console.ReadLine(), out decimal aux))
                         {
                             Nota = aux;
-                            Aluno aluno = new Aluno(Nome, Nota);
+                            Aluno aluno = new Aluno();
+                            aluno.Nome = Nome;
+                            aluno.Nota = Nota;
                             alunos[count] = aluno;
                             count++;
                         }

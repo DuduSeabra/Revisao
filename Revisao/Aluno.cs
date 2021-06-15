@@ -2,12 +2,10 @@ namespace Revisao
 {
     public class Aluno
     {
-        public readonly string Nome;
-        public readonly decimal Nota;
-        public Aluno(string Nome, decimal Nota)
-        {
-            this.Nome = Nome;
-            this.Nota = Nota;
-        }
+        private string nome; //Atributo da classe
+        private decimal nota; //Atributo da classe
+        
+        public string Nome { get => nome; set => nome = value; } //Propriedade da classe
+        public decimal Nota { get => nota; set => nota = value; } //Propriedade da classe
     }
 }
